@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Weather = () => {
-    return (
-        <div>
-            <p>The Weather is X</p>
-        </div>
-    )
+class Weather extends Component {
+     render() {
+        return (
+            <div>
+                {` Currently feels like ${this.props.weather.apparentTemperature} degrees - accessing props`}
+            </div>
+        )
+    }
 }
 
-export default Weather;
+function mapStateToProps({ weather }) {
+    return { weather }
+}
+
+export default connect(mapStateToProps)(Weather);

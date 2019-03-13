@@ -1,9 +1,7 @@
 import { FETCH_LOCATION } from './types';
 import { FETCH_WEATHER } from './types';
 import { keys } from '../keys'
-import Axios from 'axios';
-
-// keys.darksky = darksky api key
+import axios from 'axios';
 
 export const location = () => {
     return function (dispatch) {
@@ -29,10 +27,9 @@ export const location = () => {
     }
 };
 
+
 export const weather = ({ lat, long }) => async dispatch => {
-       
-    const url = `/forecast/${keys.darkSky}/${lat},${long}?units=si`
-    const res = await Axios.get(url)
-    console.log(res)
-    dispatch({ type: FETCH_WEATHER, payload: res.body })
+    const url = `/forecast/${keys.darkSky}/${lat},${long}?units=si&exclude=minutely,flags`
+    const res = await axios.get(url)
+    dispatch({ type: FETCH_WEATHER, payload: res.data.currently })
 };

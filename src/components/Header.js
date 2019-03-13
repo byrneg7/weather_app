@@ -28,7 +28,7 @@ const Header = (props) => {
         <div>
             <nav className="nav-extended">
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo">Weather Bitch</a>
+                    <a href="#" className="brand-logo">Weather Boy</a>
                     <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">Menu</i></a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
                         <li><a href="#about">About</a></li>
