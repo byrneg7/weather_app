@@ -6,10 +6,13 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import 'materialize-css/dist/css/materialize.min.css' 
 import reduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import reducers from './reducers';
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+const store = createStore(reducers, {}, composeWithDevTools(
+    applyMiddleware(reduxThunk)
+    ));
 
 ReactDOM.render(
     <Provider store={store}> <App /></Provider>,

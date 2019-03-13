@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Location = ({coords})=> {
+const Location = ()=> {
     return(
         <div>
-            {`Latitude: ${coords.lat}, longitude: ${coords.long}`}
+            <p>Coordinates are X</p>
         </div>
     )
 }
