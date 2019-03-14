@@ -1,16 +1,23 @@
-import React from 'react';
-import Weather from './Weather';
-import Location from './Location';
-import Timer from './Timer';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-const Dashboard = () => {
-    return (
-        <div>
-           <Weather/>
-           <Location/>
-           <Timer/>
-        </div>
-    )
+import CurrentWeather from './Weather';
+
+class Dashboard extends Component {
+    render() {
+        return (
+            <div>
+                <CurrentWeather
+                    weather={this.props.currentWeather}
+                    location={this.props.address}
+                />
+            </div>
+        )
+    }
 }
 
-export default Dashboard;
+function mapStateToProps(state) {
+    return state
+}
+
+export default connect(mapStateToProps)(Dashboard);

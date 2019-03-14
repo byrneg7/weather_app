@@ -1,11 +1,27 @@
 import React from 'react';
 
-const Weather = () => {
+import Location from './Location';
+
+const CurrentWeather = ({ weather, location }) => {
+    const description = `${weather.summary}. The temperature is ${weather.temperature} degrees C but
+    it feels like ${weather.apparentTemperature}!`
+
     return (
-        <div>
-            <p>The Weather is X</p>
+        <div className="centered">
+            <div className="row">
+                <div className="centered">
+                    <div className="card">
+                        <div className="card-image">
+                            <Location location={location}/>
+                            <img src={require('../../images/weather.jpg')} />
+                            <span className="card-title">{description}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default Weather;
+export default CurrentWeather;
+

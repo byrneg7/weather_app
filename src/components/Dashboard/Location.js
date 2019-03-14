@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Location = ()=> {
-    return(
+const Location = ({ location }) => {
+    return (
         <div>
-            <p>Coordinates are X</p>
+            <p>Your location is {location.city}, {location.country}</p>
         </div>
     )
 }
 
-export default Location
+export default Location;
+
+//             
