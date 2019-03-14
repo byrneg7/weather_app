@@ -1,18 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-class Weather extends Component {
-     render() {
-        return (
-            <div>
-                {` Currently feels like ${this.props.weather.apparentTemperature} degrees - accessing props`}
+import Location from './Location';
+
+const CurrentWeather = ({ weather, location }) => {
+    const description = `${weather.summary}. The temperature is ${weather.temperature} degrees C but
+    it feels like ${weather.apparentTemperature}!`
+
+    return (
+        <div className="centered">
+            <div className="row">
+                <div className="centered">
+                    <div className="card">
+                        <div class="card-image">
+                            <Location location={location}/>
+                            <img src={require('../../images/weather.jpg')} />
+                            <span className="card-title">{description}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
-function mapStateToProps({ weather }) {
-    return { weather }
-}
+export default CurrentWeather;
 
-export default connect(mapStateToProps)(Weather);

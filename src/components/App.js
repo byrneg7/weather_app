@@ -9,14 +9,18 @@ import Footer from './Footer';
 
 class App extends Component {
   componentDidMount() {
-    const getWeather = this.props.weather
-    this.props.location().then(({payload})=> getWeather(payload));
+    const getWeather = this.props.weather;
+    const getAddress = this.props.address;
+    this.props.location().then(({ payload }) => {
+      getWeather(payload);
+      getAddress(payload);
+    });
   }
-  
+
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div className="container">
           <Header />
           <Route exact path='/' component={Dashboard} />
           <Footer />
