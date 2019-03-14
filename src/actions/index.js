@@ -6,7 +6,7 @@ import { FETCH_WEATHER_HOURLY } from './types';
 import { FETCH_WEATHER_DAILY} from './types';
 import { FETCH_WEATHER_WEEKLY } from './types';
 import { FETCH_ADDRESS } from './types';
-import { keys } from '../keys'
+const keys = require('./../keys');
 
 export const location = () => {
     return function (dispatch) {
@@ -23,7 +23,6 @@ export const location = () => {
                         time: position.timestamp
                     }
                 }
-                // dispatch(action) -- if you want gps coords in state
                 resolve(action);
             }, () => {
                 reject(new Error('Permission denied'));

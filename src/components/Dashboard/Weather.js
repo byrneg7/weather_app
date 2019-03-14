@@ -11,7 +11,7 @@ const CurrentWeather = ({ weather, location }) => {
             <div className="row">
                 <div className="centered">
                     <div className="card">
-                        <div class="card-image">
+                        <div className="card-image">
                             <Location location={location}/>
                             <img src={require('../../images/weather.jpg')} />
                             <span className="card-title">{description}</span>
