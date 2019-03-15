@@ -6,7 +6,8 @@ import { FETCH_WEATHER_HOURLY } from './types';
 import { FETCH_WEATHER_DAILY} from './types';
 import { FETCH_WEATHER_WEEKLY } from './types';
 import { FETCH_ADDRESS } from './types';
-const keys = require('./../keys');
+const keys = require('./../../src/keys');
+console.log(keys)
 
 export const location = () => {
     return function (dispatch) {
