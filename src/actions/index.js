@@ -9,7 +9,7 @@ import { FETCH_ADDRESS } from './types';
 import { ABOUT_MODAL, CONTACT_MODAL, CLOSE_MODAL } from './types';
 import {store} from './../index';
 
-const keys = require('./../../src/keys');
+const keys = require('./../config/keys');
 
 export const location = () => {
     return function () {
