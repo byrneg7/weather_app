@@ -3,13 +3,16 @@ import axios from 'axios';
 import { FETCH_LOCATION } from './types';
 import { FETCH_WEATHER_CURRENTLY } from './types';
 import { FETCH_WEATHER_HOURLY } from './types';
-import { FETCH_WEATHER_DAILY} from './types';
+import { FETCH_WEATHER_DAILY } from './types';
 import { FETCH_WEATHER_WEEKLY } from './types';
 import { FETCH_ADDRESS } from './types';
-const keys = require('./../keys');
+import { ABOUT_MODAL, CONTACT_MODAL, CLOSE_MODAL } from './types';
+import {store} from './../index';
+
+const keys = require('./../../src/keys');
 
 export const location = () => {
-    return function (dispatch) {
+    return function () {
         return new Promise((resolve, reject) => {
             if (!navigator.geolocation) {
                 reject(new Error('Not Supported'));
@@ -40,7 +43,6 @@ export const address = ({ lat, long }) => async dispatch => {
 export const weather = ({ lat, long }) => async dispatch => {
     const url = `/forecast/${keys.darkSky}/${lat},${long}?units=auto&exclude=minutely,flags`
     const res = await axios.get(url);
-
     const currentlyAction = {
         type: FETCH_WEATHER_CURRENTLY,
         payload: res.data,
@@ -63,3 +65,25 @@ export const weather = ({ lat, long }) => async dispatch => {
     dispatch(dailyAction)
     dispatch(weeklyAction)
 };
+
+
+//this action creator makes the about popup appear
+export const about_switch = () => {
+    store.dispatch ({
+        type: ABOUT_MODAL,
+        payload: true
+    })
+}
+export const contact_switch = () => {
+    store.dispatch ({
+        type: CONTACT_MODAL,
+        payload: true
+    })
+}
+
+export const off_switch = () => {
+    store.dispatch ({
+        type: CLOSE_MODAL,
+        payload:false
+    })
+}
