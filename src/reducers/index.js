@@ -5,11 +5,14 @@ import currentlyReducer from './weather/currentlyReducer';
 import hourlyReducer from './weather/hourlyReducer';
 import dailyReducer from './weather/dailyReducer';
 import weeklyReducer from './weather/weeklyReducer';
+import modalReducer from './modalReduers';
 
 export default combineReducers({
     currentWeather: currentlyReducer,
     hourlyWeather: hourlyReducer,
     dailyWeather: dailyReducer,
     weeklyWeather: weeklyReducer,
-    address: addressReducer
+    address: addressReducer,
+    modals: modalReducer
 });
+

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
 
-import Header from './Header';
-import Dashboard from './Dashboard/Dashboard';
-import Footer from './Footer';
+import * as actions from '../actions';
+import Weather from './Weather';
+import SideNav from './SideNav';
+import About from './modals/About';
+import Contact from './modals/Contact';
 
 class App extends Component {
   componentDidMount() {
@@ -16,18 +17,25 @@ class App extends Component {
       getAddress(payload);
     });
   }
-
   render() {
     return (
       <BrowserRouter>
         <div className="container">
-          <Header />
-          <Route exact path='/' component={Dashboard} />
-          <Footer />
+
+          <Route
+            exact path='/'
+            render={() => <Weather {...this.props} />}
+          />
+          <SideNav />
+          <About />
+          <Contact />
         </div>
       </BrowserRouter>
     );
   }
 }
+function mapStateToProps(state) {
+  return state;
+}
 
-export default connect(null, actions)(App);
+export default connect(mapStateToProps, actions)(App);
