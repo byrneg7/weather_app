@@ -2,11 +2,13 @@ import axios from 'axios';
 
 import { FETCH_LOCATION } from './types';
 import { FETCH_WEATHER_CURRENTLY } from './types';
-import { FETCH_WEATHER_HOURLY } from './types';
+// import { FETCH_WEATHER_HOURLY } from './types';
 import { FETCH_WEATHER_DAILY } from './types';
 import { FETCH_WEATHER_WEEKLY } from './types';
 import { FETCH_ADDRESS } from './types';
 import { ABOUT_MODAL, CONTACT_MODAL, CLOSE_MODAL } from './types';
+import {SLIDER_VALUE} from './types';
+
 import {store} from './../index';
 
 const keys = require('./../config/keys');
@@ -41,16 +43,16 @@ export const address = ({ lat, long }) => async dispatch => {
 }
 
 export const weather = ({ lat, long }) => async dispatch => {
-    const url = `/forecast/${keys.darkSky}/${lat},${long}?units=auto&exclude=minutely,flags`
+    const url = `/forecast/${keys.darkSky}/${lat},${long}?units=auto&exclude=minutely,hourly,flags`
     const res = await axios.get(url);
     const currentlyAction = {
         type: FETCH_WEATHER_CURRENTLY,
         payload: res.data,
     };
-    const hourlyAction = {
-        type: FETCH_WEATHER_HOURLY,
-        payload: res.data,
-    };
+    // const hourlyAction = {
+    //     type: FETCH_WEATHER_HOURLY,
+    //     payload: res.data,
+    // };
     const dailyAction = {
         type: FETCH_WEATHER_DAILY,
         payload: res.data,
@@ -61,7 +63,7 @@ export const weather = ({ lat, long }) => async dispatch => {
     };
 
     dispatch(currentlyAction)
-    dispatch(hourlyAction)
+    // dispatch(hourlyAction)
     dispatch(dailyAction)
     dispatch(weeklyAction)
 };
@@ -85,5 +87,12 @@ export const off_switch = () => {
     store.dispatch ({
         type: CLOSE_MODAL,
         payload:false
+    })
+}
+
+export const slider_value = (value) => {
+    store.dispatch({
+        type: SLIDER_VALUE,
+        payload: value
     })
 }

@@ -8,4 +8,5 @@ export const FETCH_ADDRESS = 'fetch_address';
 export const ABOUT_MODAL = 'about';
 export const CONTACT_MODAL = 'contact';
 export const CLOSE_MODAL = 'close';
+export const SLIDER_VALUE = 'slider_value';
 
