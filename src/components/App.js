@@ -17,16 +17,18 @@ class App extends Component {
       getAddress(payload);
     });
   }
+
+  
   render() {
     return (
       <BrowserRouter>
         <div className="container">
+          <SideNav />
 
           <Route
             exact path='/'
             render={() => <Weather {...this.props} />}
           />
-          <SideNav />
           <About />
           <Contact />
         </div>
