@@ -1,8 +1,20 @@
 import { combineReducers } from 'redux';
-import locationReducer from './locationReducer';
-import weatherReducer from './weatherReducer';
+
+import addressReducer from './addressReducer';
+import currentlyReducer from './weather/currentlyReducer';
+// import hourlyReducer from './weather/hourlyReducer';
+// import dailyReducer from './weather/dailyReducer';
+import weeklyReducer from './weather/weeklyReducer';
+import modalReducer from './modalReduers';
+import sliderReducer from './sliderReducer';
 
 export default combineReducers({
-    location: locationReducer,
-    weather: weatherReducer
+    currentWeather: currentlyReducer,
+    // hourlyWeather: hourlyReducer,
+    // dailyWeather: dailyReducer,
+    weeklyWeather: weeklyReducer,
+    address: addressReducer,
+    modals: modalReducer,
+    slider:sliderReducer
 });
+

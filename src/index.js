@@ -4,13 +4,12 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import 'materialize-css/dist/css/materialize.min.css' 
+
 import reduxThunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 import reducers from './reducers';
 
-const store = createStore(reducers, {}, composeWithDevTools(
+export const store = createStore(reducers, {}, (
     applyMiddleware(reduxThunk)
     ));
 
@@ -23,3 +22,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+

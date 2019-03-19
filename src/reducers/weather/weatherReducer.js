@@ -1,8 +1,8 @@
-import { FETCH_LOCATION } from "../actions/types";
+import { FETCH_WEATHER } from "../../actions/types";
 
 export default function (state = {}, action) {
     switch (action.type) {
-        case FETCH_LOCATION:
+        case FETCH_WEATHER:
             return action.payload
         default:
             return state;
