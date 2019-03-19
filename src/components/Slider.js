@@ -6,7 +6,7 @@ import { slider_value } from '../actions';
 
 const styles = {
   root: {
-    width: 300,
+    width: 380,
   },
   slider: {
     padding: '22px 0px',
@@ -20,7 +20,7 @@ class StepSlider extends React.Component {
 
   handleChange = (event, value) => {
     this.setState({ value });
-     slider_value(value);
+    slider_value(value);
   };
 
   render() {
@@ -29,11 +29,11 @@ class StepSlider extends React.Component {
 
     return (
       <div className={classes.root}>
-        <Slider
+        <Slider id="slider"
           classes={{ container: classes.slider }}
           value={value}
           min={0}
-          max={8}
+          max={7}
           step={1}
           onChange={this.handleChange}
         />

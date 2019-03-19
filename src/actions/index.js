@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FETCH_LOCATION } from './types';
 import { FETCH_WEATHER_CURRENTLY } from './types';
 // import { FETCH_WEATHER_HOURLY } from './types';
-import { FETCH_WEATHER_DAILY } from './types';
+// import { FETCH_WEATHER_DAILY } from './types';
 import { FETCH_WEATHER_WEEKLY } from './types';
 import { FETCH_ADDRESS } from './types';
 import { ABOUT_MODAL, CONTACT_MODAL, CLOSE_MODAL } from './types';
@@ -53,10 +53,10 @@ export const weather = ({ lat, long }) => async dispatch => {
     //     type: FETCH_WEATHER_HOURLY,
     //     payload: res.data,
     // };
-    const dailyAction = {
-        type: FETCH_WEATHER_DAILY,
-        payload: res.data,
-    };
+    // const dailyAction = {
+    //     type: FETCH_WEATHER_DAILY,
+    //     payload: res.data,
+    // };
     const weeklyAction = {
         type: FETCH_WEATHER_WEEKLY,
         payload: res.data,
@@ -64,10 +64,9 @@ export const weather = ({ lat, long }) => async dispatch => {
 
     dispatch(currentlyAction)
     // dispatch(hourlyAction)
-    dispatch(dailyAction)
+    // dispatch(dailyAction)
     dispatch(weeklyAction)
 };
-
 
 //this action creator makes the about popup appear
 export const about_switch = () => {
